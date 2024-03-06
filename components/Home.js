@@ -75,7 +75,6 @@ function Home(props) {
   ];
 
   const showActionSheet = () => {
-    //To show the Bottom ActionSheet
     actionSheet.current.show();
   };
 
@@ -166,14 +165,9 @@ function Home(props) {
       </View>
       <ActionSheet
         ref={actionSheet}
-        // Options Array to show in bottom sheet
         options={optionArray}
-        // Define cancel button index in the option array
-        // This will take the cancel option in bottom
-        // and will highlight it
         cancelButtonIndex={2}
         onPress={index => {
-          // Clicking on the option will give you alert
           if (index == 1) setVisible(true);
           if (index == 0 && deviceList.length > 0) {props.navigator.navigate('StartWorkout', {connectedDevices: deviceList}); writeTime()};
           if(index == 0 && deviceList.length <= 0) showToast();
